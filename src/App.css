@@ -1,0 +1,185 @@
+html {
+  scroll-behavior: smooth;
+}
+
+/* Typing Animation */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 4ch;
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: teal;
+  }
+}
+
+.typing {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid teal;
+  animation: typing 2s steps(4, end) forwards, blink 0.75s step-end infinite;
+}
+
+.delay-1 {
+  animation: typing 2s steps(4, end) 2s forwards,
+    blink 0.75s step-end infinite 2s;
+  margin-left: 8px;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s forwards;
+}
+.delay-2 {
+  animation-delay: 1.5s;
+}
+.delay-3 {
+  animation-delay: 2.5s;
+}
+
+/* Bounce emoji */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-bounce {
+  display: inline-block;
+  animation: bounce 1s infinite;
+}
+
+/* Floating hero image */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Hero background */
+.hero-pattern {
+  background-color: #000000; /* solid black */
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated coding symbols in background */
+.hero-pattern::before {
+  content: "{ } < > ; // { } < > ; // { } < > ; //";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  font-size: 20px;
+  color: rgba(13, 115, 119, 0.05); /* teal with low opacity */
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  z-index: 1;
+  pointer-events: none;
+  animation: moveSymbols 20s linear infinite;
+}
+
+@keyframes moveSymbols {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(100px, 50px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+.hero-pattern {
+  position: relative;
+  background-color: #000000; /* base black */
+  overflow: hidden;
+  color: #ffffff;
+}
+
+.hero-pattern::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at center,
+    rgba(13, 115, 119, 0.2) 0%,
+    transparent 60%
+  );
+  animation: rotateWave 20s linear infinite;
+  z-index: 0;
+}
+
+.hero-pattern::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: repeating-linear-gradient(
+    135deg,
+    transparent,
+    transparent 4px,
+    rgba(13, 115, 119, 0.1) 5px
+  );
+  z-index: 0;
+}
+
+@keyframes rotateWave {
+  from {
+    transform: rotate(0deg) translate(0, 0);
+  }
+  to {
+    transform: rotate(360deg) translate(0, 0);
+  }
+}
+
+/* Ensure content is above background */
+.hero-pattern > .container {
+  position: relative;
+  z-index: 10;
+}
+
+/* FIX: Prevent backgrounds from blocking hover/click */
+.hero-pattern::before,
+.hero-pattern::after {
+  pointer-events: none !important;
+}
