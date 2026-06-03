@@ -1,20 +1,40 @@
 import React, { useState } from "react";
 import webdevletter from "../assets/webdev-letter.jpeg";
 import syntecxhub from "../assets/syntecxhub.png";
-
+import apexcify from "../assets/apexcify.jpeg";
+import developers from "../assets/developers.jpeg";
+import softgrow from "../assets/softgrow.jpeg";
 
 const letters = [
   {
-    title: " Internship at WebDev Masters ",
+    title: "Internship at WebDev Masters",
     issuer: "Frontend Development using AI",
     date: "From 15 Nov to 15 Dec 2025",
     image: webdevletter,
   },
   {
-    title: "Internship at Syntecxhub ",
-    issuer: "Frontend Development ",
-    date: " From 24 Feb to 24 March 2026",
+    title: "Internship at Syntecxhub",
+    issuer: "Frontend Development",
+    date: "From 24 Feb to 24 March 2026",
     image: syntecxhub,
+  },
+  {
+    title: "Internship at Apexcify Technologys",
+    issuer: "Frontend Development",
+    date: "From 10th March to 10th April 2026",
+    image: apexcify,
+  },
+  {
+    title: "Internship at Developershub Corporation",
+    issuer: "Frontend Development",
+    date: "From 10th March to 25 April 2026",
+    image: developers,
+  },
+  {
+    title: "Internship at Softgrow Tech",
+    issuer: "Frontend Development",
+    date: "From 10th March to 25 April 2026",
+    image: softgrow,
   },
 ];
 
@@ -30,11 +50,12 @@ export default function Letters() {
         Experience
       </h2>
 
-      <div className="flex flex-col md:flex-row gap-8">
+      {/* Cards */}
+      <div className="flex flex-wrap justify-center gap-8">
         {letters.map((cert, index) => (
           <div
             key={index}
-            className="bg-white rounded-xl shadow-lg p-6 max-w-sm w-full flex flex-col justify-between transform transition duration-300 hover:scale-105"
+            className="bg-white rounded-xl shadow-lg p-6 w-full max-w-sm flex flex-col justify-between transform transition duration-300 hover:scale-105"
           >
             <img
               src={cert.image}
@@ -71,11 +92,11 @@ export default function Letters() {
             className="relative bg-white rounded-lg p-4 max-w-3xl w-full"
             onClick={(e) => e.stopPropagation()}
           >
-       <img
-  src={selectedCert}
-  alt="Certificate"
-  className="max-h-[90vh] max-w-full h-auto w-auto mx-auto rounded-md"
-/>
+            <img
+              src={selectedCert}
+              alt="Internship Letter"
+              className="max-h-[90vh] max-w-full h-auto w-auto mx-auto rounded-md"
+            />
 
             <button
               type="button"
